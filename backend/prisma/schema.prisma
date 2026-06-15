@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SensorData {
+  id              Int      @id @default(autoincrement())
+  street          String
+  sector          String
+  queueLength     Int
+  coConcentration Float
+  createdAt       DateTime @default(now())
+}
