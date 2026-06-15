@@ -10,22 +10,22 @@ The system is built on a decoupled Client-Server architecture:
 
 ```mermaid
 graph TD
-    subgraph Frontend (React + Vite)
+    subgraph Frontend ["Frontend (React + Vite)"]
         A[App.jsx] --> B[TopAppBar]
         A --> C[MapPanel]
         A --> D[Sidebar]
-        C -->|Fetches Data| H[http://localhost:5000/api/sensor-data]
+        C -->|Fetches Data| H["http://localhost:5000/api/sensor-data"]
         D -->|Renders Feed| G[SensorFeed]
         G -->|Fetches Data| H
     end
 
-    subgraph Backend (Express.js)
+    subgraph Backend ["Backend (Express.js)"]
         H --> I[server.js]
         I -->|Prisma Client| J[Prisma ORM]
     end
 
-    subgraph Database (PostgreSQL)
-        J --> K[(PostgreSQL DB)]
+    subgraph Database ["Database (PostgreSQL)"]
+        J --> K[("PostgreSQL DB")]
     end
 ```
 
